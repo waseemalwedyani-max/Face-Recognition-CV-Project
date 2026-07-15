@@ -10,18 +10,21 @@ To ensure the project runs smoothly without any conflicts, it is highly recommen
 
 To install the required libraries, run the following command in your terminal:
 \`\`\`bash
-pip install opencv-python==4.10.0.84
+py -3.12 -m pip install opencv-python==4.10.0.84
 \`\`\`
 
 ## 🚀 How to Run
+**⚠️ Important Note:** Do NOT use the "Run" (Play) button in VS Code, as it might launch an older, incompatible Python environment. Please use the terminal command below instead.
+
 1. Clone this repository or download the `face_detection.py` file.
-2. Open your terminal and navigate to the directory containing the file.
-3. Run the script using the following command:
+2. Open your terminal in VS Code and navigate to the directory containing the file.
+3. Run the script explicitly using Python 3.12 with the following command:
 \`\`\`bash
-python face_detection.py
+py -3.12 face_detection.py
 \`\`\`
 4. A window will open displaying your webcam's live feed with a blue bounding box around any detected faces.
 5. To safely close the program, click on the video window and press the **'q'** key on your keyboard.
+<img width="1024" height="601" alt="image" src="https://github.com/user-attachments/assets/7cf099d6-3154-4a19-b758-566b1dcdfb03" />
 
 ---
 
@@ -36,7 +39,7 @@ During the development of this project, we encountered several common programmin
 ### 2. Numpy/OpenCV Incompatibility and C++ Build Failures
 * **Error:** `numpy.core.multiarray failed to import` and `metadata-generation-failed` during installation.
 * **Cause:** Using an experimental/pre-release Python version (`Python 3.14`) which lacked pre-built wheels for the libraries. This forced the system to attempt building them from scratch using C++, resulting in a failure.
-* **Solution:** Switched the Python interpreter in VS Code to a stable version **(Python 3.12)** and forced the installation specifically in that environment using:
+* **Solution:** Switched to a stable version **(Python 3.12)** and forced the installation specifically in that environment using:
 \`\`\`bash
 py -3.12 -m pip install opencv-python
 \`\`\`
